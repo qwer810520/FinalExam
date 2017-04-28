@@ -7,17 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
 
 class Bookmodel {
+    var key:String?
     var name:String?
     var address:String?
-    var photo:String?
+    var photo:UIImage?
     var phone:String?
     var url:String?
     var detail:String?
     
-    init(name:String, address:String, photo:String, phone:String, url:String, detail:String) {
+    init(key:String, name:String, address:String, photo:UIImage, phone:String, url:String, detail:String) {
+        self.key = key
         self.name = name
         self.address = address
         self.photo = photo

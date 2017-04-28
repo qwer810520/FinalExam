@@ -13,7 +13,7 @@ import FirebaseDatabase
 class BookTableViewController: UITableViewController {
     
     var book:[Bookmodel] = []
-    
+    let bookRef = FIRDatabase.database().reference().child("Book")
     
     @IBAction func addBookButton(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "book", bundle: nil)
@@ -26,8 +26,41 @@ class BookTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        dowloadData()
+    }
+    
+    
+    func dowloadData() {
+        self.bookRef.observe(.childAdded, with: { (snapshot) in
+            var model:Bookmodel?
+            if let dict = snapshot.value as? [String: AnyObject] {
+                let key = snapshot.key
+                let name = dict["name"] as? String
+                let address = dict["address"] as? String
+                let phone = dict["phone"] as? String
+                let url = dict["url"] as? String
+                let detail = dict["detail"] as? String
+                let photoURLString = dict["photo"] as? String
+                let photoURL = URL(string: photoURLString!)
+                do {
+                    let data = try Data(contentsOf: photoURL!)
+                    let image = UIImage(data: data)
+                    model = Bookmodel(key: key, name: name!, address: address!, photo: image!, phone: phone!, url: url!, detail: detail!)
+                    self.book.append(model!)
+                } catch {
+                    
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        })
     }
     
     
@@ -42,7 +75,7 @@ class BookTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BookTableViewCell
-        cell.bookImage.image = UIImage(named: book[indexPath.row].photo!)
+        cell.bookImage.image = book[indexPath.row].photo!
         cell.bookName.text = book[indexPath.row].name
         
         return cell
