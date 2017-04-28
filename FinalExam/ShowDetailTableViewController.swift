@@ -10,50 +10,50 @@ import UIKit
 
 class ShowDetailTableViewController: UITableViewController {
     
-    
-    var selectIndex:Bookmodel?
-    
-    @IBOutlet weak var photoImage: UIButton!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var showAddress: UIButton!
     @IBAction func goMapButton(_ sender: UIButton) {
-        
-        
+        let storyboard = UIStoryboard(name: "name", bundle: nil)
+        let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        mapViewController.getAddress = selectIndex?.address
+        navigationController?.pushViewController(mapViewController, animated: true)
     }
-    
-    @IBOutlet weak var showPhone: UIButton!
     @IBAction func callPhoneButton(_ sender: UIButton) {
-        if let phoneCallURL:URL = URL(string: "tel:\(showPhone)") {
-            let application:UIApplication = UIApplication.shared
-            if (application.canOpenURL(phoneCallURL)) {
-                let alertController = UIAlertController(title: "MyApp", message: "Are you sure you want to call \n\(self.showPhone)?", preferredStyle: .alert)
-                let yesPressed = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        if let phoneCallURL = URL(string: "tel:\(showPhone)") {
+            let application = UIApplication.shared
+            if application.canOpenURL(phoneCallURL) {
+                let alertController = UIAlertController(title: "Are you sure you want to call?", message: " \(self.showPhone)", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
                     application.openURL(phoneCallURL)
-                })
-                let noPressed = UIAlertAction(title: "No", style: .default, handler: { (action) in
-                    
-                })
-                alertController.addAction(yesPressed)
-                alertController.addAction(noPressed)
+                }))
+                alertController.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
                 present(alertController, animated: true, completion: nil)
             }
         }
     }
-    @IBOutlet weak var showURL: UIButton!
     @IBAction func toSafari(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "book", bundle: nil)
         let openURLViewController = storyboard.instantiateViewController(withIdentifier: "OpenURLViewController") as! OpenURLViewController
         openURLViewController.getURL = selectIndex?.url
         navigationController?.pushViewController(openURLViewController, animated: true)
     }
-    
+    @IBOutlet weak var showPhone: UIButton!
     @IBOutlet weak var showDetail: UILabel!
+    @IBOutlet weak var showURL: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var showAddress: UIButton!
+    @IBOutlet weak var photoImage: UIImageView!
+    var selectIndex:Bookmodel?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       showPhone.titleLabel!.text = selectIndex?.phone
+       showDetail.text = selectIndex?.detail
+       showURL.titleLabel!.text = selectIndex?.url
+        let image = UIImage(named: selectIndex!.phone!)
+       photoImage.image = image
+        nameLabel.text = selectIndex!.name
+        showAddress.titleLabel!.text = selectIndex!.address
 
-      
     }
 
 }

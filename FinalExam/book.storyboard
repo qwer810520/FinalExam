@@ -423,9 +423,6 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="597-2a-l9T">
                                                     <rect key="frame" x="0.0" y="-0.5" width="375" height="207"/>
-                                                    <connections>
-                                                        <action selector="addImage:" destination="luN-8l-lgr" eventType="touchUpInside" id="h61-VH-wdV"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -498,7 +495,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="3tk-nM-ZaB"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="goMapButton:" destination="luN-8l-lgr" eventType="touchUpInside" id="Wyq-Ya-RgL"/>
                                                     </connections>
@@ -535,7 +534,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="w45-Ae-gYQ"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="callPhoneButton:" destination="luN-8l-lgr" eventType="touchUpInside" id="Ix1-U4-GEc"/>
                                                     </connections>
@@ -573,7 +574,9 @@
                                                         <constraint firstAttribute="height" constant="30" id="cZu-Ee-53u"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="toSafari:" destination="luN-8l-lgr" eventType="touchUpInside" id="eXh-jG-KGM"/>
                                                     </connections>
@@ -633,17 +636,50 @@
                     <navigationItem key="navigationItem" title="內容" id="yIK-jN-Ztm"/>
                     <connections>
                         <outlet property="nameLabel" destination="UQp-cR-cNr" id="3rp-gC-6E7"/>
-                        <outlet property="photoImage" destination="597-2a-l9T" id="kAU-mU-7PV"/>
+                        <outlet property="photoImage" destination="xmR-Qz-onp" id="I48-Yb-36h"/>
                         <outlet property="showAddress" destination="aeH-c6-yqs" id="P2v-DL-bOx"/>
                         <outlet property="showDetail" destination="ISQ-vQ-a9V" id="IlG-n2-Oya"/>
                         <outlet property="showPhone" destination="oJn-ej-y7O" id="XWx-WU-yBp"/>
                         <outlet property="showURL" destination="HHR-2C-7df" id="9zO-f3-gZ9"/>
                         <segue destination="jLF-RO-rnt" kind="show" id="zIi-Pu-Rdz"/>
+                        <segue destination="Myd-cW-0x5" kind="show" id="4tT-gM-hBI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmK-ur-ZAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2741.5999999999999" y="415.14242878560725"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="e6B-3V-yqZ">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Myd-cW-0x5" customClass="MapViewController" customModule="FinalExam" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ru3-Ps-y7u"/>
+                        <viewControllerLayoutGuide type="bottom" id="lxQ-sR-n8e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pOl-fM-7h3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DX9-02-V8W">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DX9-02-V8W" firstAttribute="leading" secondItem="pOl-fM-7h3" secondAttribute="leading" id="bZO-PL-vri"/>
+                            <constraint firstItem="DX9-02-V8W" firstAttribute="top" secondItem="Ru3-Ps-y7u" secondAttribute="bottom" id="hrX-ih-oWz"/>
+                            <constraint firstAttribute="trailing" secondItem="DX9-02-V8W" secondAttribute="trailing" id="j3O-Kj-srq"/>
+                            <constraint firstItem="lxQ-sR-n8e" firstAttribute="top" secondItem="DX9-02-V8W" secondAttribute="bottom" id="wai-Fr-Xrw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="DX9-02-V8W" id="PaV-ll-nQt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qFj-OG-Al6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3716" y="-77"/>
         </scene>
         <!--Open URL View Controller-->
         <scene sceneID="P9z-nO-rAQ">

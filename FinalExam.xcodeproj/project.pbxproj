@@ -19,6 +19,8 @@
 		3910A3861EB32C5A00A9C68F /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910A3851EB32C5A00A9C68F /* AddTableViewController.swift */; };
 		3910A3881EB338BF00A9C68F /* ShowDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910A3871EB338BF00A9C68F /* ShowDetailTableViewController.swift */; };
 		3910A38A1EB33CAD00A9C68F /* OpenURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910A3891EB33CAD00A9C68F /* OpenURLViewController.swift */; };
+		3910A38C1EB33FF000A9C68F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3910A38B1EB33FF000A9C68F /* MapKit.framework */; };
+		3910A38E1EB3400400A9C68F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910A38D1EB3400400A9C68F /* MapViewController.swift */; };
 		B21C2677A550BF18A8295D2B /* Pods_FinalExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C3CF80ED275C43DC7D7913 /* Pods_FinalExam.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		3910A3851EB32C5A00A9C68F /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 		3910A3871EB338BF00A9C68F /* ShowDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailTableViewController.swift; sourceTree = "<group>"; };
 		3910A3891EB33CAD00A9C68F /* OpenURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenURLViewController.swift; sourceTree = "<group>"; };
+		3910A38B1EB33FF000A9C68F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3910A38D1EB3400400A9C68F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		81C3CF80ED275C43DC7D7913 /* Pods_FinalExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		929E2EA8D3EE50AD16E783A7 /* Pods-FinalExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalExam.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalExam/Pods-FinalExam.release.xcconfig"; sourceTree = "<group>"; };
 		ADEF0C82D85C757D3C8452DD /* Pods-FinalExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalExam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalExam/Pods-FinalExam.debug.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3910A38C1EB33FF000A9C68F /* MapKit.framework in Frameworks */,
 				B21C2677A550BF18A8295D2B /* Pods_FinalExam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +102,7 @@
 				3910A3851EB32C5A00A9C68F /* AddTableViewController.swift */,
 				3910A3871EB338BF00A9C68F /* ShowDetailTableViewController.swift */,
 				3910A3891EB33CAD00A9C68F /* OpenURLViewController.swift */,
+				3910A38D1EB3400400A9C68F /* MapViewController.swift */,
 			);
 			path = FinalExam;
 			sourceTree = "<group>";
@@ -104,6 +110,7 @@
 		F1281661611FC393C3C6F6BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3910A38B1EB33FF000A9C68F /* MapKit.framework */,
 				81C3CF80ED275C43DC7D7913 /* Pods_FinalExam.framework */,
 			);
 			name = Frameworks;
@@ -146,6 +153,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = WCFPRNZ278;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -238,6 +250,7 @@
 				3910A37E1EB320C800A9C68F /* BookTableViewController.swift in Sources */,
 				3910A38A1EB33CAD00A9C68F /* OpenURLViewController.swift in Sources */,
 				3910A3681EB31F4E00A9C68F /* AppDelegate.swift in Sources */,
+				3910A38E1EB3400400A9C68F /* MapViewController.swift in Sources */,
 				3910A3841EB3299400A9C68F /* BookTableViewCell.swift in Sources */,
 				3910A3821EB327C800A9C68F /* model.swift in Sources */,
 				3910A3881EB338BF00A9C68F /* ShowDetailTableViewController.swift in Sources */,
