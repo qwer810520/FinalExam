@@ -31,10 +31,19 @@ class ShowDetailTableViewController: UITableViewController {
         }
     }
     @IBAction func toSafari(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "book", bundle: nil)
-        let openURLViewController = storyboard.instantiateViewController(withIdentifier: "OpenURLViewController") as! OpenURLViewController
-        openURLViewController.getURL = selectIndex?.url
-        navigationController?.pushViewController(openURLViewController, animated: true)
+        
+        if let url =  URL(string: (selectIndex?.url)!){
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
+        }
+//        let storyboard = UIStoryboard(name: "book", bundle: nil)
+//        let openURLViewController = storyboard.instantiateViewController(withIdentifier: "OpenURLViewController") as! OpenURLViewController
+//        openURLViewController.getURL = selectIndex?.url
+//        navigationController?.pushViewController(openURLViewController, animated: true)
     }
     @IBOutlet weak var showURL: UILabel!
     @IBOutlet weak var showPhone: UILabel!

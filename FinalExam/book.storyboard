@@ -672,7 +672,6 @@
                         <outlet property="showDetail" destination="ISQ-vQ-a9V" id="IlG-n2-Oya"/>
                         <outlet property="showPhone" destination="R27-7O-bYN" id="bcZ-LX-N1j"/>
                         <outlet property="showURL" destination="UxQ-go-ZTt" id="7Nz-5s-rqg"/>
-                        <segue destination="jLF-RO-rnt" kind="show" id="zIi-Pu-Rdz"/>
                         <segue destination="Myd-cW-0x5" kind="show" id="4tT-gM-hBI"/>
                     </connections>
                 </tableViewController>
@@ -711,24 +710,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFj-OG-Al6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3716" y="-77"/>
-        </scene>
-        <!--Open URL View Controller-->
-        <scene sceneID="P9z-nO-rAQ">
-            <objects>
-                <viewController storyboardIdentifier="OpenURLViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jLF-RO-rnt" customClass="OpenURLViewController" customModule="FinalExam" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Erb-o3-UN8"/>
-                        <viewControllerLayoutGuide type="bottom" id="k7W-m5-6eb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZsF-85-J11">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Uy-1Y-auS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3687" y="627"/>
         </scene>
     </scenes>
     <resources>
