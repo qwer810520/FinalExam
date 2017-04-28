@@ -26,6 +26,9 @@ class BookTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let refashController = UIRefreshControl()
+        refashController.addTarget(self, action: #selector(dowloadData), for: .valueChanged)
+        refreshControl = refashController
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +36,6 @@ class BookTableViewController: UITableViewController {
         
         dowloadData()
     }
-    
     
     func dowloadData() {
         self.bookRef.observe(.childAdded, with: { (snapshot) in
@@ -58,6 +60,7 @@ class BookTableViewController: UITableViewController {
                 }
             }
             DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             }
             
@@ -87,6 +90,14 @@ class BookTableViewController: UITableViewController {
         let showDetailTableViewController = storyboard.instantiateViewController(withIdentifier: "ShowDetailTableViewController") as! ShowDetailTableViewController
         showDetailTableViewController.selectIndex = book[indexPath.row]
         navigationController?.pushViewController(showDetailTableViewController, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            bookRef.child(book[indexPath.row].key!).removeValue()
+            book.remove(at: indexPath.row)
+        }
+        tableView.reloadData()
     }
 
 }

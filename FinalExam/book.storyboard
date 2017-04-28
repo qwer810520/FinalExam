@@ -337,7 +337,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7yX-FZ-RZq">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7yX-FZ-RZq">
                                                     <rect key="frame" x="18" y="39" width="339" height="138.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -640,7 +640,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISQ-vQ-a9V">
-                                                    <rect key="frame" x="18" y="34" width="339" height="126.5"/>
+                                                    <rect key="frame" x="18" y="34" width="339" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -649,7 +649,6 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ISQ-vQ-a9V" secondAttribute="trailing" constant="10" id="87p-f9-iRl"/>
                                                 <constraint firstItem="OpW-3r-7d6" firstAttribute="leading" secondItem="qbt-cQ-tTb" secondAttribute="leadingMargin" constant="10" id="KH2-k1-Z0B"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ISQ-vQ-a9V" secondAttribute="bottom" constant="10" id="PPq-3T-NAd"/>
                                                 <constraint firstItem="OpW-3r-7d6" firstAttribute="top" secondItem="qbt-cQ-tTb" secondAttribute="topMargin" id="Xwj-u9-o0s"/>
                                                 <constraint firstItem="ISQ-vQ-a9V" firstAttribute="leading" secondItem="qbt-cQ-tTb" secondAttribute="leadingMargin" constant="10" id="qsZ-54-bqb"/>
                                                 <constraint firstItem="ISQ-vQ-a9V" firstAttribute="top" secondItem="OpW-3r-7d6" secondAttribute="bottom" constant="5" id="yzn-S7-096"/>
