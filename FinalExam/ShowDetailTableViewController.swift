@@ -11,7 +11,8 @@ import UIKit
 class ShowDetailTableViewController: UITableViewController {
     
     @IBAction func goMapButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "name", bundle: nil)
+        print("按到地圖按鈕")
+        let storyboard = UIStoryboard(name: "book", bundle: nil)
         let mapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
         mapViewController.getAddress = selectIndex?.address
         navigationController?.pushViewController(mapViewController, animated: true)
@@ -35,24 +36,23 @@ class ShowDetailTableViewController: UITableViewController {
         openURLViewController.getURL = selectIndex?.url
         navigationController?.pushViewController(openURLViewController, animated: true)
     }
-    @IBOutlet weak var showPhone: UIButton!
+    @IBOutlet weak var showURL: UILabel!
+    @IBOutlet weak var showPhone: UILabel!
+    @IBOutlet weak var showAddress: UILabel!
     @IBOutlet weak var showDetail: UILabel!
-    @IBOutlet weak var showURL: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var showAddress: UIButton!
     @IBOutlet weak var photoImage: UIImageView!
     var selectIndex:Bookmodel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       showPhone.titleLabel!.text = selectIndex?.phone
+       showPhone.text = selectIndex?.phone
        showDetail.text = selectIndex?.detail
-       showURL.titleLabel!.text = selectIndex?.url
-        let image = UIImage(named: selectIndex!.phone!)
-       photoImage.image = image
+       showURL.text = selectIndex?.url
+       photoImage.image = selectIndex?.photo!
         nameLabel.text = selectIndex!.name
-        showAddress.titleLabel!.text = selectIndex!.address
+        showAddress.text = selectIndex!.address
 
     }
 

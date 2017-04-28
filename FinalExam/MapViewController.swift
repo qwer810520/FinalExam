@@ -16,7 +16,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+         searchCoordinate(location: getAddress!)
     }
     
     func searchCoordinate(location:String) {
@@ -29,17 +37,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             if error != nil {
                 return
             } else  {
+                
                 for i in result!.mapItems {
-                    self.inputMarker(coordinate: CLLocationCoordinate2D(latitude: i.placemark.coordinate.latitude, longitude: i.placemark.coordinate.longitude))
+                    print(i.placemark.coordinate)
+                    self.inputMarker(coordinate: i.placemark.coordinate)
                 }
             }
         }
-        
     }
     
     func  inputMarker(coordinate:CLLocationCoordinate2D) {
         let annotation = MKPointAnnotation()
-        mapView.region = MKCoordinateRegionMakeWithDistance(coordinate, 30000, 30000)
+        annotation.coordinate = coordinate
+        
+        mapView.region = MKCoordinateRegionMakeWithDistance(coordinate, 200, 200)
         mapView.addAnnotation(annotation)
     }
 }

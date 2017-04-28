@@ -37,6 +37,7 @@ class BookTableViewController: UITableViewController {
     
     func dowloadData() {
         self.bookRef.observe(.childAdded, with: { (snapshot) in
+            self.book.removeAll()
             var model:Bookmodel?
             if let dict = snapshot.value as? [String: AnyObject] {
                 let key = snapshot.key
@@ -79,6 +80,13 @@ class BookTableViewController: UITableViewController {
         cell.bookName.text = book[indexPath.row].name
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "book", bundle: nil)
+        let showDetailTableViewController = storyboard.instantiateViewController(withIdentifier: "ShowDetailTableViewController") as! ShowDetailTableViewController
+        showDetailTableViewController.selectIndex = book[indexPath.row]
+        navigationController?.pushViewController(showDetailTableViewController, animated: true)
     }
 
 }
