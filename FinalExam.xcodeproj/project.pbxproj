@@ -20,6 +20,8 @@
 		3910A3881EB338BF00A9C68F /* ShowDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910A3871EB338BF00A9C68F /* ShowDetailTableViewController.swift */; };
 		3910A38C1EB33FF000A9C68F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3910A38B1EB33FF000A9C68F /* MapKit.framework */; };
 		3910A38E1EB3400400A9C68F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910A38D1EB3400400A9C68F /* MapViewController.swift */; };
+		3910A3921EB378F200A9C68F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3910A3911EB378F200A9C68F /* Reachability.m */; };
+		3910A3941EB3AA9800A9C68F /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910A3931EB3AA9800A9C68F /* PhotosViewController.swift */; };
 		B21C2677A550BF18A8295D2B /* Pods_FinalExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C3CF80ED275C43DC7D7913 /* Pods_FinalExam.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,10 @@
 		3910A3871EB338BF00A9C68F /* ShowDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailTableViewController.swift; sourceTree = "<group>"; };
 		3910A38B1EB33FF000A9C68F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3910A38D1EB3400400A9C68F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3910A38F1EB378F200A9C68F /* FinalExam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FinalExam-Bridging-Header.h"; sourceTree = "<group>"; };
+		3910A3901EB378F200A9C68F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3910A3911EB378F200A9C68F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		3910A3931EB3AA9800A9C68F /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		81C3CF80ED275C43DC7D7913 /* Pods_FinalExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		929E2EA8D3EE50AD16E783A7 /* Pods-FinalExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalExam.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalExam/Pods-FinalExam.release.xcconfig"; sourceTree = "<group>"; };
 		ADEF0C82D85C757D3C8452DD /* Pods-FinalExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalExam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalExam/Pods-FinalExam.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +106,10 @@
 				3910A3851EB32C5A00A9C68F /* AddTableViewController.swift */,
 				3910A3871EB338BF00A9C68F /* ShowDetailTableViewController.swift */,
 				3910A38D1EB3400400A9C68F /* MapViewController.swift */,
+				3910A3901EB378F200A9C68F /* Reachability.h */,
+				3910A3911EB378F200A9C68F /* Reachability.m */,
+				3910A38F1EB378F200A9C68F /* FinalExam-Bridging-Header.h */,
+				3910A3931EB3AA9800A9C68F /* PhotosViewController.swift */,
 			);
 			path = FinalExam;
 			sourceTree = "<group>";
@@ -149,6 +159,7 @@
 					3910A3631EB31F4E00A9C68F = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = WCFPRNZ278;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -250,7 +261,9 @@
 				3910A3841EB3299400A9C68F /* BookTableViewCell.swift in Sources */,
 				3910A3821EB327C800A9C68F /* model.swift in Sources */,
 				3910A3881EB338BF00A9C68F /* ShowDetailTableViewController.swift in Sources */,
+				3910A3921EB378F200A9C68F /* Reachability.m in Sources */,
 				3910A3861EB32C5A00A9C68F /* AddTableViewController.swift in Sources */,
+				3910A3941EB3AA9800A9C68F /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,11 +381,14 @@
 			baseConfigurationReference = ADEF0C82D85C757D3C8452DD /* Pods-FinalExam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = WCFPRNZ278;
 				INFOPLIST_FILE = FinalExam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.min.FinalExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FinalExam/FinalExam-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -382,11 +398,13 @@
 			baseConfigurationReference = 929E2EA8D3EE50AD16E783A7 /* Pods-FinalExam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = WCFPRNZ278;
 				INFOPLIST_FILE = FinalExam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.min.FinalExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FinalExam/FinalExam-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

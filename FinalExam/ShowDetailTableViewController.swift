@@ -38,12 +38,17 @@ class ShowDetailTableViewController: UITableViewController {
             } else {
                 UIApplication.shared.openURL(url)
             }
-            
         }
-//        let storyboard = UIStoryboard(name: "book", bundle: nil)
-//        let openURLViewController = storyboard.instantiateViewController(withIdentifier: "OpenURLViewController") as! OpenURLViewController
-//        openURLViewController.getURL = selectIndex?.url
-//        navigationController?.pushViewController(openURLViewController, animated: true)
+    }
+    
+    @IBAction func toShowImage(_ sender: UIButton) {
+
+        let storyboard = UIStoryboard(name: "book", bundle: nil)
+        let photosViewController = storyboard.instantiateViewController(withIdentifier: "PhotosViewController") as! PhotosViewController
+        photosViewController.image = selectIndex?.photo
+        
+        navigationController?.pushViewController(photosViewController, animated: true)
+        
     }
     @IBOutlet weak var showURL: UILabel!
     @IBOutlet weak var showPhone: UILabel!

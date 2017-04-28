@@ -33,7 +33,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var addressText: UITextField!
     @IBOutlet weak var phoneText: UITextField!
     @IBOutlet weak var urlText: UITextField!
-    @IBOutlet weak var detailText: UITextField!
+    @IBOutlet weak var detailText: UITextView!
     
     var setImage:UIImage?
     
@@ -46,7 +46,6 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         addressText.delegate = self
         phoneText.delegate = self
         urlText.delegate = self
-        detailText.delegate = self
 
        nameText.becomeFirstResponder()
     }
@@ -62,10 +61,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
             urlText.becomeFirstResponder()
             return false
         } else if textField == urlText {
-            detailText.becomeFirstResponder()
-            return false
-        } else if textField == detailText {
-            detailText.resignFirstResponder()
+            urlText.resignFirstResponder()
             return false
         }
         return true

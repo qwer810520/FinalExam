@@ -15,6 +15,8 @@ class BookTableViewController: UITableViewController {
     var book:[Bookmodel] = []
     let bookRef = FIRDatabase.database().reference().child("Book")
     
+    let reachability = Reachability(hostName: "https://tw.yahoo.com/")
+    
     @IBAction func addBookButton(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "book", bundle: nil)
         let addTableViewController = storyboard.instantiateViewController(withIdentifier: "AddTableViewController")
@@ -37,33 +39,49 @@ class BookTableViewController: UITableViewController {
         dowloadData()
     }
     
+    func isInsternetOK() -> Bool {
+        if reachability?.currentReachabilityStatus().rawValue == 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    
+    
     func dowloadData() {
         self.bookRef.observe(.childAdded, with: { (snapshot) in
-            self.book.removeAll()
-            var model:Bookmodel?
-            if let dict = snapshot.value as? [String: AnyObject] {
-                let key = snapshot.key
-                let name = dict["name"] as? String
-                let address = dict["address"] as? String
-                let phone = dict["phone"] as? String
-                let url = dict["url"] as? String
-                let detail = dict["detail"] as? String
-                let photoURLString = dict["photo"] as? String
-                let photoURL = URL(string: photoURLString!)
-                do {
-                    let data = try Data(contentsOf: photoURL!)
-                    let image = UIImage(data: data)
-                    model = Bookmodel(key: key, name: name!, address: address!, photo: image!, phone: phone!, url: url!, detail: detail!)
-                    self.book.append(model!)
-                } catch {
-                    
+            if self.isInsternetOK() == false {
+                let alert = UIAlertController(title: "錯誤", message: "網路沒有連線", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            } else {
+                self.book.removeAll()
+                var model:Bookmodel?
+                if let dict = snapshot.value as? [String: AnyObject] {
+                    let key = snapshot.key
+                    let name = dict["name"] as? String
+                    let address = dict["address"] as? String
+                    let phone = dict["phone"] as? String
+                    let url = dict["url"] as? String
+                    let detail = dict["detail"] as? String
+                    let photoURLString = dict["photo"] as? String
+                    let photoURL = URL(string: photoURLString!)
+                    do {
+                        let data = try Data(contentsOf: photoURL!)
+                        let image = UIImage(data: data)
+                        model = Bookmodel(key: key, name: name!, address: address!, photo: image!, phone: phone!, url: url!, detail: detail!)
+                        self.book.append(model!)
+                    } catch {
+                        
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
                 }
             }
-            DispatchQueue.main.async {
-                self.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
-            }
-            
         })
     }
     
